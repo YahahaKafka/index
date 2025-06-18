@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menu Kost Eyang</title>
+<style>
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    background-color: #222222;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Container and max width for large desktop */
+  .container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px 0;
+    flex-grow: 1;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: #222222;
+    padding: 16px 0 32px 0;
+    text-align: center;
+    border-bottom: 2px solid #fa8c16;
+  }
+  header h1 {
+    font-weight: 900;
+    font-size: 2.8rem;
+    letter-spacing: 4px;
+    margin-bottom: 4px;
+    color: #fff;
+  }
+  header .menu-label {
+    color: #fa8c16;
+    font-weight: 800;
+    font-size: 3rem;
+    letter-spacing: 6px;
+  }
+  header h1 {
+  margin-top: 0; /* hilangin jarak atas biar lebih rapat */
+}
+  
+  header .icon-container {
+    background-color: #fa8c16;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  header .icon-container i {
+    color: white;
+    font-size: 40px;
+  }
+
+  /* Main Layout */
+  main.menu {
+    display: grid;
+    gap: 32px;
+  }
+
+  /* Menu section common */
+  .menu-section {
+    background: #2c2c2c;
+    padding: 32px 32px 48px 32px;
+    border-radius: 16px;
+    box-shadow: 0 6px 15px rgba(250, 140, 22, 0.2);
+    position: relative;
+  }
+  .menu-section .section-title {
+    color: #fa8c16;
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+    border-left: 4px solid #fa8c16;
+    padding-left: 12px;
+  }
+
+  /* Menu items */
+  .menu-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+  .menu-list li {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 14px;
+  }
+  .menu-list li .item-name {
+    color: white;
+  }
+  .menu-list li .item-price {
+    font-weight: 600;
+    color: #e9e9e9;
+  }
+  /* Small "telur +4.000" text style */
+  .small-note {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fa8c16;
+    margin-left: 8px;
+    align-self: flex-end;
+  }
+
+  /* Big circular accent shapes - absolute positioned */
+  .circle-left-bottom, .circle-right-top {
+    position: absolute;
+    border-radius: 50%;
+    background-color: #fa8c16;
+    opacity: 0.95;
+    z-index: 0;
+  }
+  .circle-left-bottom {
+    width: 120px;
+    height: 120px;
+    left: -40px;
+    bottom: -0px;
+  }
+  .circle-right-top {
+    width: 140px;
+    height: 140px;
+    right: -40px;
+    top: -40px;
+  }
+
+  /* Footer / Order info */
+   .cta a {
+      background: #25D366;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      display: inline-block;
+    }
+  footer {
+    background: #222222;
+    padding: 20px 16px 32px 16px;
+    font-size: 1.2rem;
+    color: #aaa;
+    text-align: center;
+    border-top: 1px solid #444;
+  }
+  footer .order-info {
+    margin-top: 3px;
+    margin-bottom: 8px;
+  }
+  footer .available-times {
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* Responsive Layout */
+  /* Mobile single column: 320px - 767px */
+  @media (max-width: 767px) {
+    main.menu {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .menu-section {
+      padding: 24px 20px 36px 20px;
+      border-radius: 12px;
+    }
+    header h1 {
+      font-size: 2.4rem;
+    }
+    header .menu-label {
+      letter-spacing: 4px;
+      font-size: 1rem;
+    }
+    /* Circles smaller */
+    .circle-left-bottom {
+      width: 100px;
+      height: 100px;
+      left: -20px;
+      bottom: -20px;
+    }
+    .circle-right-top {
+      width: 90px;
+      height: 90px;
+      right: -20px;
+      top: -20px;
+    }
+  }
+
+  /* Desktop: 768px - 1439px: two columns */
+  @media(min-width: 768px) and (max-width: 1439px){
+    main.menu {
+      grid-template-columns: 1fr 1fr;
+    }
+    .menu-section {
+      min-height: 350px;
+    }
+  }
+
+  /* Large desktop: 1440px+ three columns */
+  @media(min-width: 1440px) {
+    main.menu {
+      grid-template-columns: 1fr 1fr;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      gap: 48px;
+    }
+  }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <div class="menu-label" aria-label="Menu label">MENU</div>
+    <h1>KOST EYANG</h1>
+    <div class="icon-container" aria-hidden="true">
+      <i class="material-icons" aria-hidden="true">restaurant_menu</i>
+    </div>
+  </header>
+
+  <main class="container menu" role="main" aria-label="Food and drinks menu">
+    <section class="menu-section" aria-labelledby="food-section-title">
+      <div class="circle-left-bottom" aria-hidden="true"></div>
+      <h2 id="food-section-title" class="section-title">MAKANAN</h2>
+      <ul class="menu-list" role="list">
+        <li><span class="item-name">Nasi Goreng</span> <span class="item-price">10.000</span></li>
+        <li>
+          <span class="item-name">
+            Indomie biasa
+            <span class="small-note" aria-label="Telur additional price">+ TELUR 4.000</span>
+          </span>
+          <span class="item-price">6.000</span>
+        </li>
+        <li><span class="item-name">Indomie Special</span> <span class="item-price">12.000</span></li>
+        <li><span class="item-name">Nasi Goreng Special</span> <span class="item-price">12.000</span></li>
+        <li><span class="item-name">Ifumie Rebus</span> <span class="item-price">10.000</span></li>
+      </ul>
+    </section>
+
+    <section class="menu-section" aria-labelledby="drink-section-title">
+      <div class="circle-right-top" aria-hidden="true"></div>
+      <h2 id="drink-section-title" class="section-title">MINUMAN</h2>
+      <ul class="menu-list" role="list">
+        <li><span class="item-name">Teh</span><span class="item-price">5.000</span></li>
+        <li><span class="item-name">Kopi</span><span class="item-price">5.000</span></li>
+        <li><span class="item-name">Milo</span><span class="item-price">6.000</span></li>
+        <li><span class="item-name">Susu</span><span class="item-price">6.000</span></li>
+        <li><span class="item-name">Nutrisari jeruk</span><span class="item-price">5.000</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="cta">
+      <a href="https://wa.me/62nomer?text=Halo%20Kost%20Eyang!%20Saya%20mau%20pesan%20makanan%20nih..." target="_blank">
+        Pesan Sekarang via WhatsApp
+      </a>
+    </div>
+    <div class="order-info" role="contentinfo">
+      Order : <a href="tel:082289613001" style="color:#fa8c16; text-decoration:none;">082289613001</a>
+    </div>
+    <div class="available-times">
+      Available : 6.00–10.00 Pagi<br />18.30–21.00 malam
+    </div>
+  </footer>
+</body>
+</html>
+
