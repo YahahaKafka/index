@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Menu Kost Eyang</title>
 <style>
-  /* Reset and base */
   *, *::before, *::after {
     box-sizing: border-box;
   }
@@ -20,7 +19,6 @@
     flex-direction: column;
   }
 
-  /* Container and max width for large desktop */
   .container {
     width: 90%;
     max-width: 1440px;
@@ -29,7 +27,6 @@
     flex-grow: 1;
   }
 
-  /* Header */
   header {
     position: sticky;
     top: 0;
@@ -52,7 +49,7 @@
     letter-spacing: 6px;
   }
   header h1 {
-  margin-top: 0; /* hilangin jarak atas biar lebih rapat */
+  margin-top: 0; 
 }
   
   header .icon-container {
@@ -70,13 +67,11 @@
     font-size: 40px;
   }
 
-  /* Main Layout */
   main.menu {
     display: grid;
     gap: 32px;
   }
 
-  /* Menu section common */
   .menu-section {
     background: #2c2c2c;
     padding: 32px 32px 48px 32px;
@@ -94,7 +89,6 @@
     padding-left: 12px;
   }
 
-  /* Menu items */
   .menu-list {
     list-style: none;
     padding-left: 0;
@@ -114,7 +108,6 @@
     font-weight: 600;
     color: #e9e9e9;
   }
-  /* Small "telur +4.000" text style */
   .small-note {
     font-size: 0.75rem;
     font-weight: 600;
@@ -123,7 +116,6 @@
     align-self: flex-end;
   }
 
-  /* Big circular accent shapes - absolute positioned */
   .circle-left-bottom, .circle-right-top {
     position: absolute;
     border-radius: 50%;
@@ -144,7 +136,6 @@
     top: -40px;
   }
 
-  /* Footer / Order info */
    .cta a {
       background: #25D366;
       color: white;
@@ -171,8 +162,6 @@
     line-height: 1.3;
   }
 
-  /* Responsive Layout */
-  /* Mobile single column: 320px - 767px */
   @media (max-width: 767px) {
     main.menu {
       display: flex;
@@ -190,7 +179,6 @@
       letter-spacing: 4px;
       font-size: 1rem;
     }
-    /* Circles smaller */
     .circle-left-bottom {
       width: 100px;
       height: 100px;
@@ -205,7 +193,6 @@
     }
   }
 
-  /* Desktop: 768px - 1439px: two columns */
   @media(min-width: 768px) and (max-width: 1439px){
     main.menu {
       grid-template-columns: 1fr 1fr;
@@ -215,7 +202,6 @@
     }
   }
 
-  /* Large desktop: 1440px+ three columns */
   @media(min-width: 1440px) {
     main.menu {
       grid-template-columns: 1fr 1fr;
